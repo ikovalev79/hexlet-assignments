@@ -42,7 +42,9 @@ public class Application {
     public ResponseEntity<Post> create(@RequestBody Post post) {
     	posts.add(post);
         
-    	return ResponseEntity.status(HttpStatus.CREATED).body(post);
+    	return ResponseEntity
+    			.status(HttpStatus.CREATED)
+    			.body(post);
     }
 
     @GetMapping("/posts/{id}") // Вывод поста
@@ -52,10 +54,12 @@ public class Application {
             .findFirst();
         
         if (post.isPresent()) {
-        	return ResponseEntity.ok().body(post.get());
+        	return ResponseEntity.ok()
+        			.body(post.get());
         }
         else {
-        	return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        	return ResponseEntity.status(HttpStatus.NOT_FOUND)
+        			.body(null);
         }
     }
 
@@ -74,7 +78,8 @@ public class Application {
             return ResponseEntity.ok().body(post);
         }
         else {
-        	return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        	return ResponseEntity.status(HttpStatus.NO_CONTENT)
+        			.body(null);
         }
     }
     // END
