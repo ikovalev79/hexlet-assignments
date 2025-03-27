@@ -16,7 +16,7 @@ public class WelcomeController {
 
     @GetMapping(path = "")
     public String welcome() {
-        return "Welcome to Spring!";
+        return "Welcome to Spring";
     }
     
     @GetMapping(path = "/welcome")
